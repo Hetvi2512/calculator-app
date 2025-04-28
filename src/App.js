@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
   const [input, setInput] = useState('');
-  const a = 10;
-  const handleClick = (value) => {
-    setInput((prevInput) => prevInput + value);
-  };
+  const [count, setCount] = useState(0);
+  const [toggle, setToggle] = useState(false);
 
-  const handleClear = () => {
-    setInput('');
-  };
+  // Infinite loop #1: setCount depends on count
+  useEffect(() => {
+    setCount(count + 1);
+  }, [count]);
 
+  // Infinite loop #2: setToggle depends on toggle
+  useEffect(() => {
+    setToggle(!toggle);
+  }, [toggle]);
+  
+            const a = 10;
+            const handleClick = (value) => {
+                setInput((prevInput) => prevInput + value);
+            };
+
+            const handleClear = () => {
+                setInput('');
+            };
+            
   const handleCalculate = () => {
     try {
       setInput(eval(input).toString());

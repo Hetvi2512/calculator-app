@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
   const [input, setInput] = useState('');
@@ -10,7 +10,7 @@ const App = () => {
             const handleClear = () => {
                 setInput('');
             };
-
+            
   const handleCalculate = () => {
     try {
       setInput(eval(input).toString());

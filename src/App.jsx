@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [input, setInput] = useState('');
-
+  const a = 10;
   const handleClick = (value) => {
     setInput((prevInput) => prevInput + value);
   };
